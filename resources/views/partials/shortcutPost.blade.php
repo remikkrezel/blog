@@ -4,6 +4,7 @@
                 <div class="card flex-md-row mb-4 box-shadow h-md-300">
                     <div class="card-body d-flex flex-column align-items-start">
                         <strong class="d-inline-block mb-2 text-primary">{{ $post->category  }}</strong>
+                        <p>Created by: {{ $post->user->name }}</p>
                         <h3 class="mb-0">
                             <a class="text-dark" href="/posts/{{ $post->id }}">{{ $post->title  }}</a>
                         </h3>

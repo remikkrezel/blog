@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Input;
 
 class MainPageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show']);
+    }
+
     public function index()
     {
         $posts = Post::latest()->get();
@@ -53,7 +58,8 @@ class MainPageController extends Controller
             Post::create([
                 'title' => request('title'),
                 'body' => request('body'),
-                'category' => request('category')
+                'category' => request('category'),
+                'user_id' => auth()->id()
             ]);}
 
         return redirect('/');

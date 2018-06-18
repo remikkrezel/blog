@@ -26,6 +26,7 @@
                     <div class="col-md-12">
                         <div class="article-background">
                             <div style="padding-top: 20px"><a href="#" class="post-category">{{ $post->category }}</a></div>
+                            <p>Created by: {{ $post->user->name }}</p>
                             <h3 style="text-align: center;">{{ $post->title }}</h3>
                             <h5 style="text-align: center;">{{ $post->created_at }}</h5>
                             <p class="post">{{ $post->body }}</p>
