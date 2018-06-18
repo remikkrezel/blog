@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'MainPageController@index')->name('home');
+Route::get('/', 'MainPageController@index');
 
-Route::get('/admin', 'AdminController@index');
+//Route::get('/admin', 'AdminController@index');
 
 Route::get('/posts/create', 'MainPageController@create');
 
@@ -23,10 +23,15 @@ Route::post('/posts', 'MainPageController@store');
 
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 
-Route::get('/register', 'RegistrationController@create');
-Route::post('/register', 'RegistrationController@store');
+//Route::get('/register', 'RegistrationController@create');
+//Route::post('/register', 'RegistrationController@store');
+//
+//Route::get('/login', 'SessionsController@create');
+//Route::post('/login', 'SessionsController@store');
+//
+//Route::get('/logout', 'SessionsController@destroy');
+Auth::routes();
 
-Route::get('/login', 'SessionsController@create');
-Route::post('/login', 'SessionsController@store');
+//Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

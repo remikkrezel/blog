@@ -6,7 +6,6 @@ use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
-
 class MainPageController extends Controller
 {
     public function __construct()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 use App\User;
 
@@ -23,7 +24,12 @@ class RegistrationController extends Controller
             ]);
         //create and save the user
 
-        $user = User::create(request(['name', 'email', 'password']));
+        $user = User::create([
+
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => Hash::make(request('request'))
+        ]);
 
         //sign them in
 
@@ -31,6 +37,6 @@ class RegistrationController extends Controller
 
         //redirect
 
-        return redirect()->home();
+        return redirect('/');
     }
 }

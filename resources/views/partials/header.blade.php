@@ -12,10 +12,16 @@
                 </a>
 
                 @if (Auth::check())
-                <a class="btn btn-sm btn-outline-secondary ml-2" href="#">{{ Auth::user()->name }}</a>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="/logout">Wyloguj</a>
+                        </div>
+                    </div>
+
                 @else
-                    <a class="btn btn-sm btn-outline-secondary mr-2" href="#">Zaloguj się</a>
-                    <a class="btn btn-sm btn-outline-secondary" href="#">Zarejestruj się</a>
+                    <a class="btn btn-sm btn-outline-secondary mr-2" href="/login">Zaloguj się</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="/register">Zarejestruj się</a>
                 @endif
 
             </div>
